@@ -1,0 +1,31 @@
+{% extends 'master.html' %}
+
+{% block content %}
+    <div class="container">
+        <div class="row mt-3">
+            <div class="col-md-12">
+                <h1>Show article</h1>
+            </div>
+        </div>
+        <div class="row my-3">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ article.title }}</h5>
+                        <p class="card-text">{{ article.description }}</p>
+                        <span class="badge badge-success">Category : {{ article.category.name }}</span>
+                        <ul>
+                            {% for tag in article.tags.all %}
+                                <li>
+                                    <span class="badge bg-dark">{{ tag.name }}</span>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                        <a href="#" class="card-link"></a>
+                        <a href="{% url 'list_of_articles' %}" class="btn btn-link">Back to list</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

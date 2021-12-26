@@ -1,0 +1,32 @@
+{% extends 'master.html' %}
+
+{% block content %}
+    <div class="container">
+        <div class="row mt-3">
+            <div class="col-md-12">
+                <h1>Create article</h1>
+            </div>
+        </div>
+        <div class="row my-3">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <form action="" method="post">
+                            {% csrf_token %}
+                            {% for champ in form %}
+                                <div class="form-group my-2">
+                                    <label class="form-label">{{ champ.label }}</label>
+                                    {{champ}}
+                                </div>
+                            {% endfor %}
+                            <div class="d-grid gap-2">
+                                <button class="btn btn-success" type="submit">Save</button>
+                                <a href="{% url 'list_of_articles' %}" class="btn btn-dark">Back to list</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
